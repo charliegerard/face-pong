@@ -1,0 +1,283 @@
+@font-face {
+  font-family: "abduction";
+  src: url("font/abduction2002.ttf");
+}
+
+body{
+  margin: 0;
+  /*font-family: 'Open Sans';*/
+  /*font-family: 'Lato';*/
+  font-family: 'abduction';
+  background-color: rgb(15,0,57);
+}
+
+#container{
+  width: 100%;
+  display: block;
+  margin-top:10em;
+  position: absolute;
+}
+
+#container p{
+  color: white;
+text-align: center;
+font-size: 12px;
+}
+
+h1{
+  text-align: center;
+  font-size: 80px;
+  font-weight: 100;
+  color: rgb(220, 0, 134);
+  text-shadow: 10px 10px 10px rgb(36, 0, 252);
+  transform: rotate(-10deg);
+  margin-left: 0.5em;
+}
+
+.pong{
+  margin-left: -150px;
+}
+
+#buttons{
+  width: 28em;
+  display: block;
+  margin: 0 auto;
+}
+
+#quit{
+  color: white;
+  display: inline-block;
+  padding: 0.5em 1em;
+  /*background-color: #00BCD4;*/
+  border: 3px solid rgb(36, 0, 252);
+  width: 4rem;
+  height: 4rem;
+  vertical-align: top;
+  text-align: center;
+  line-height: 4rem;
+}
+
+#quit span{
+  font-size: 10px;
+}
+
+#button{
+  display: inline-block;
+  padding: 0.5em 1em;
+  border: 3px solid rgb(36, 0, 252);
+  width: 4rem;
+  height: 4rem;
+  text-align: center;
+  color: white;
+  font-size: 15px;
+  font-weight: 400;
+  /*background-color: rgb(47, 183, 135);*/
+  text-align: center;
+  line-height: 4rem;
+}
+
+#button:hover{
+  cursor: pointer;
+}
+
+
+@-webkit-keyframes fadeIt {
+  0%   { background-color: none; }
+  50%  { background-color: lightgrey; }
+  100% { background-color: none; }
+}
+@-moz-keyframes fadeIt {
+  0%   { background-color: none; }
+  50%  { background-color: lightgrey; }
+  100% { background-color: none; }
+}
+@-o-keyframes fadeIt {
+  0%   { background-color: none; }
+  50%  { background-color: lightgrey; }
+  100% { background-color: none; }
+}
+@keyframes fadeIt {
+  0%   { background-color: none; }
+  50%  { background-color: lightgrey; }
+  100% { background-color: none; }
+}
+
+#button{
+    -webkit-animation: fadeIt 4s ease-in-out;
+       -moz-animation: fadeIt 4s ease-in-out;
+         -o-animation: fadeIt 4s ease-in-out;
+            animation: fadeIt 4s ease-in-out;
+            animation-iteration-count: infinite;
+}
+
+
+
+
+#arrow-up{
+  /*background-color: #8BC34A;*/
+  display: inline-block;
+  width: 4rem;
+  height: 4rem;
+  border: 3px solid rgb(36, 0, 252);
+  font-size: 15px;
+  font-weight: 400;
+  text-align: center;
+  line-height: 4rem;
+  color: white;
+  padding: 0.5em 1em;
+}
+
+
+#arrow-down{
+  /*background-color: #607D8B;*/
+  display: inline-block;
+  width: 4rem;
+  height: 4rem;
+  border: 3px solid rgb(36, 0, 252);
+  font-size: 15px;
+  font-weight: 400;
+  text-align: center;
+  line-height: 4rem;
+  color: white;
+  padding: 0.5em 1em;
+}
+
+#ball-container{
+  display: block;
+  background-color: white;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  position: absolute;
+}
+
+#playerOne-container{
+  display: block;
+  background-color: rgb(36, 0, 252);
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  position: absolute;
+}
+
+#player-one-counter, #player-two-counter{
+  font-size: 30px;
+  color: white;
+  position: absolute;
+  line-height: 200px;
+  text-align: center;
+  width: 100%;
+}
+
+#playerTwo-container{
+  display: block;
+  background-color: rgb(220, 0, 134);
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  position: absolute;
+}
+
+#mobile-message{
+  display: none;
+}
+
+#mobile-message.mobile{
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+#mobile-message.mobile p {
+  display: block;
+  font-size: 30px;
+  background-color: lightgrey;
+  position: relative;;
+  top: 17em;
+  width: 85%;
+  padding: 1em;
+  left: 1em;
+  opacity: 1;
+  font-size: 40px;
+}
+
+@media screen and (max-device-width: 470px) {
+  #container{
+    margin-top: 25em;
+  }
+
+  h1{
+    font-size: 150px;
+  }
+  #buttons{
+    width: 75%;
+  }
+  #quit, #button, #arrow-up, #arrow-down{
+    width: 8em;
+    height: 8em;
+    line-height: 8em;
+  }
+
+  #button, #arrow-up, #arrow-down{
+    font-size: 16px;
+  }
+
+  #quit span{
+    font-size: 17px;
+  }
+
+  #mobile-message{
+    display: block;
+  }
+
+  #mobile-message.mobile{
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+  }
+
+  #mobile-message.mobile p {
+    display: block;
+    font-size: 30px;
+    background-color: lightgrey;
+    position: relative;;
+    top: 17em;
+    width: 85%;
+    padding: 1em;
+    left: 1em;
+    opacity: 1;
+    font-size: 40px;
+  }
+}
+
+
+/* LSTM style webcam thingy */
+
+h6{
+  color: white;
+  font-size: 14px;
+}
+
+.samples-section{
+  display: block;
+  margin: 1em auto;
+}
+
+#amountOfSamples{
+  color: white;
+}
+
+#loss{
+  color: white;
+  font-size: 14px;
+  display: block;
+  margin: 1em auto;
+}
+
+.no-display{
+  display: none;
+}

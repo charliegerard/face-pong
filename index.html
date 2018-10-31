@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Browser pong - Made by Charlie Gerard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css" media="screen" title="no title" charset="utf-8">
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,100,300,700,900' rel='stylesheet' type='text/css'>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/addons/p5.dom.min.js"></script>
+    <script src="https://unpkg.com/ml5@0.1.1/dist/ml5.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="style.css" media="screen" title="no title" charset="utf-8">
+    <script type="text/javascript" src="index.js"></script>
+  </head>
+  <body>
+    <div id="container">
+      <h1 id="title">BROWSER <br/><span class="pong">PONG</span></h1>
+      <p>
+        Make sure to allow browser pop-ups
+      </p>
+
+      <section class="prediction-section">
+
+        <div id="videoContainer"></div>
+        <h6><span id="modelStatus">Loading base model...</span> | <span id="videoStatus">Loading video...</span></h6>
+
+        <input type="range" name="slider" id="slider" min="0.01" max="1.0" step="0.01" value="0.5">
+
+        <section class="samples-section">
+          <button id="addSample">Add Sample</button>
+          <span id="amountOfSamples">0</span>
+        </section>
+
+        <button id="train">Train</button>
+        <span id="loss"></span>
+        <button id="buttonPredict">Start predicting!</button>
+
+      </section>
+
+
+      <div id="buttons">
+        <div id="quit">Q <span>(QUIT)</span></div>
+        <div id='button'>PLAY</div>
+        <div id="arrow-up"><i class="fa fa-long-arrow-up" aria-hidden="true"></i></div>
+        <div id="arrow-down"><i class="fa fa-long-arrow-down" aria-hidden="true"></i></div>
+      </div>
+    </div>
+    <div id="mobile-message">
+      <p>This project is not optimised for mobile. Please visit this link on your desktop.</p>
+    </div>
+
+    <script src="lstm.js"></script>
+  </body>
+</html>
