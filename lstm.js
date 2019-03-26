@@ -66,14 +66,7 @@ function setupButtons() {
 
   // Train Button
   select('#train').mousePressed(function() {
-    regressor.train(function(lossValue) {
-      if (lossValue) {
-        loss = lossValue;
-        select('#loss').html('Loss: ' + loss);
-      } else {
-        select('#loss').html('Done Training! Final Loss: ' + loss);
-      }
-    });
+    regressor.train();
   });
 
   // Predict Button

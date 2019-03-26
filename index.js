@@ -32,6 +32,9 @@ var windowY = {
   velocity: 0
 }
 
+var jumpAudio = new Audio(`./sounds/jump.wav`);
+var sproutAudio = new Audio(`./sounds/sprout.wav`);
+var fireballAudio = new Audio(`./sounds/fireball.wav`);
 // ------------------------------------------------------------
 // Press Q to quit the game and close all pop-up windows
 // ------------------------------------------------------------
@@ -55,6 +58,17 @@ var loserAlert = function(){
 var winnerAlert = function(){
   alert("YOU WIN!!!!!!")
 }
+
+// var playSound = function(filename){
+//   var audio = new Audio(`./sounds/${filename}`);
+//   // audio.addEventListener('loadeddata',() => {
+//   //   this.play() // the duration variable now holds the duration (in seconds) of the audio clip
+//   // })
+//   audio.play();
+//   // if(filename === "jump.wav"){
+//     // base.getElementsByClassName("fireball")[0].play();
+//   // }
+// }
 
 // ------------------------
 //  BALL MOVEMENTS
@@ -84,17 +98,18 @@ var moveBall = function(){
   // -------------------------------------
   if(windowTop <= player2.windowBottom && windowRight >= player2.windowLeft &&
      windowRight < player2.windowRight && windowBottom >= player2.windowTop && ball.windowX.velocity > 0){
-
+      // playSound('jump.wav');
+      jumpAudio.play();
       ball.windowX.velocity = -ball.windowX.velocity;
       ball.windowY.velocity += (player2.windowX.velocity / 2);
-      playSound('./sounds/jump.wav');
 
   } else if(windowRight >= outerContainer.right && windowX.velocity > 0) { //If user loses and computer wins
     var counterOneDiv = player1.document.getElementById('player-one-counter');
     var previousCounter = base.counter1;
     base.counter1 += 1;
     if(base.counter1 === previousCounter+1){
-      playSound('./sounds/sprout.wav')
+      // playSound('sprout.wav')
+      sproutAudio.play()
     }
 
     if(base.counter1 === 15){
@@ -109,18 +124,20 @@ var moveBall = function(){
   // -------------------------------------
   // just removed this `&& windowLeft < player1.windowLeft` seems to improve collision detection
   if(windowTop <= player1.windowBottom && windowLeft <= player1.windowRight && windowBottom >= player1.windowTop && ball.windowX.velocity < 0){
-        ball.windowX.velocity = -ball.windowX.velocity;
-        //The following gives a new direction to the ball
-        //depending on which side of the paddle it hit.
-        ball.windowY.velocity += (player1.windowX.velocity / 2);
-        playSound('./sounds/fireball.wav');
+    // playSound('fireball.wav');
+    fireballAudio.play()
+    ball.windowX.velocity = -ball.windowX.velocity;
+    //The following gives a new direction to the ball
+    //depending on which side of the paddle it hit.
+    ball.windowY.velocity += (player1.windowX.velocity / 2);
 
   } else if(windowLeft <= outerContainer.left && windowX.velocity < 0 ){
     var counterTwoDiv = player2.document.getElementById('player-two-counter');
     var previousCounter = base.counter2;
     base.counter2 += 1;
     if(base.counter2 === previousCounter+1){
-      playSound('./sounds/sprout.wav')
+      // playSound('sprout.wav')
+      sproutAudio.play()
     }
     if(base.counter2 === 15){
       quit();
@@ -165,7 +182,6 @@ var movePlayerOne = function(){
 }
 
 var movePlayerTwo = function(){
-  console.log('here?')
   windowX.now += (windowX.target - windowX.now) / 3;
   windowX.now = Math.round( windowX.now);
   windowY.now += (windowY.target - windowY.now) / 3;
@@ -184,11 +200,6 @@ var goUp = function(){
 
 var goDown = function(){
   windowY.target += windowWidth * 1;
-}
-
-var playSound = function(filename){
-  var audio = new Audio(`./sounds/${filename}`);
-  audio.play();
 }
 
 window.onload = function(){
