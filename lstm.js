@@ -66,7 +66,14 @@ function setupButtons() {
 
   // Train Button
   select('#train').mousePressed(function() {
-    regressor.train();
+    regressor.train(function(lossValue){
+      if (lossValue) {
+        loss = lossValue;
+        select('#loss').html('Loss: ' + loss);
+      } else {
+        select('#loss').html('Done Training! Final Loss: ' + loss);
+      }
+    });
   });
 
   // Predict Button
@@ -78,9 +85,12 @@ function gotResults(err, result) {
   if (err) {
     console.error(err);
   }
-  trained = true;
-  positionX = map(result, 0, 1, 0, width);
-  // console.log(positionX)
-  slider.value(result);
-  predict();
+
+  if(result && result.value){
+    trained = true;
+    positionX = map(result.value, 0, 1, 0, width);
+    // console.log(positionX)
+    slider.value(result.value);
+    predict();
+  }
 }
