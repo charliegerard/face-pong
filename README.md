@@ -6,7 +6,7 @@
 
 Totally inspired by [stewd.io](http://stewd.io/pong/) browser pong game.
 
-Instructions
+How to play
 ---
 
 * Make sure to enable pop-up windows.
